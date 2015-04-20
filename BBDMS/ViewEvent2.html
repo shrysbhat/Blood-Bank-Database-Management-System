@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Blood Bank Database Management System</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="font-awesome-4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<!-- <script type="text/javascript">
+	$(document).ready(function(){
+		$("#myModal").modal('show');
+	});
+</script>-->
+</head>
+<body>
+<nav class="navbar navbar-collapse">
+  <div class="container">
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="home.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+		<li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-list"></span> Events
+			<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+            <li><a href="ViewEvent.html">View Events</a></li>
+            <li><a href="OrganizeEvent.html">Organize</a></li>
+			</ul>
+        </li>
+	</ul>
+	<ul class="nav navbar-nav navbar-right">
+        <li><a href="SignUp.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="Login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="text-center">
+<p><a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large">&nbsp; Register &nbsp;</a></p>  
+</div>
+<div id="myModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title">Register</h3>
+            </div>
+            <div class="modal-body">
+                <!-- <p>Do you want to save changes you made to document before closing?</p> -->
+                <!-- <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p> -->
+				
+            
+            <form id=action="#" method="post" class="form" role="form" style="padding-top:10px">
+            <div class="row">
+                <div class="col-xs-6 col-md-6" style="padding:10px">
+                    <input class="form-control" name="firstname" placeholder="My First Name is" type="text"
+                        required autofocus />
+                </div>
+                <div class="col-xs-6 col-md-6" style="padding:10px">
+                    <input class="form-control" name="lastname" placeholder="My Last Name is" type="text" required />
+                </div>
+            </div>
+			<hr>
+            <span class="glyphicon glyphicon-envelope"></span> 
+			<label for="youremail">Email</label>
+			<input class="form-control" style="padding:10px" name="youremail" placeholder="My Email is" type="email"/>
+            
+<!--		<span class="glyphicon glyphicon-lock"></span> <input class="form-control" style="padding:10px" name="password" placeholder="Set Password" type="password" /> -->
+            <hr>
+			
+			<span class="glyphicon glyphicon-calendar"></span>
+			<label for="">Birth Date</label>
+            <div class="row">
+                <div class="col-xs-4 col-md-4">
+                    <!-- <select class="form-control"> -->
+                        <!--<option list="eventMonth">Month</option>-->
+						<!-- <label class="control-label" for="eventMonth">Month</label>   -->
+						
+						<input name="Month" placeholder="Month" class="form-control input-md" type="text" list="MonthList">
+						
+							<datalist id="MonthList">
+							<option value="January">
+							<option value="February">
+							<option value="March">
+							<option value="April">
+							<option value="May">
+							<option value="June">
+							<option value="July">
+							<option value="August">
+							<option value="September">
+							<option value="October">
+							<option value="November">
+							<option value="December">
+							</datalist>
+                    <!-- </select> -->
+                </div>
+                <div class="col-xs-4 col-md-4">
+                    <!-- <select class="form-control">
+                        <option value="Day">Day</option>
+                    </select>-->
+					<input style="padding:10px" name="Day" placeholder="Day" class="form-control input-md" type="text" list="DayList">
+						
+							<datalist id="DayList">
+							<option value="1">
+							<option value="2">
+							<option value="3">
+							<option value="4">
+							<option value="5">
+							<option value="6">
+							<option value="7">
+							<option value="8">
+							<option value="9">
+							<option value="10">
+							<option value="11">
+							<option value="12">
+							<option value="13">
+							<option value="14">
+							<option value="15">
+							<option value="16">
+							<option value="17">
+							<option value="18">
+							<option value="19">
+							<option value="20">
+							<option value="21">
+							<option value="22">
+							<option value="23">
+							<option value="24">
+							<option value="25">
+							<option value="26">
+							<option value="27">
+							<option value="28">
+							<option value="29">
+							<option value="30">
+							<option value="31">
+							</datalist>
+                </div>
+                <div class="col-xs-4 col-md-4">
+                    <!-- <select class="form-control">
+                        <option value="Year">Year</option>
+                    </select> -->
+					<input style="padding:10px" name="Year" placeholder="Year" class="form-control input-md" type="text" list="YearList">
+						
+							<datalist id="YearList">
+							<option value="2011">
+							<option value="2012">
+							<option value="2013">
+							<option value="2014">
+							<option value="2015">
+							<option value="2016">
+							<option value="2017">
+							<option value="2018">
+							<option value="2019">
+							<option value="2020">
+							</datalist>
+                </div>
+            </div>
+			<hr>
+			<label for="Contact"><span class="glyphicon glyphicon-earphone"></span> Contact</label>
+			<div class="row">				
+				<div class="col-xs-6 col-md-6">
+				<input id="Contact" name="Contact" placeholder="My contact number is" class="form-control input-md" type="tel" maxlength="10" required>
+				</div>
+			</div>
+			<hr>
+            <i class="fa fa-male fa-2x"></i>
+			<label class="radio-inline" style="padding-right:10px">                
+				<input type="radio" name="sex" id="inlineCheckbox1" value="male" />
+                I am a Male
+            </label>
+			<i class="fa fa-female fa-2x"></i>
+            <label class="radio-inline" style="padding-right:10px">
+                <input type="radio" name="sex" id="inlineCheckbox2" value="female" />
+                I am a Female
+            </label>
+            <hr>
+			<label for="symptoms"><i class="fa fa-heartbeat fa-2x"></i> Any Medical Symptoms? </label>
+				<div id="symptoms" class="btn-group btn-toggle" required> 
+				<button class="btn btn-md btn-danger">&nbsp; Yes &nbsp;</button>
+				<button class="btn btn-md btn-success active">&nbsp; No &nbsp;</button>
+				</div>
+			
+            <br>
+            </div>
+            <div class="modal-footer">
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+			</form>
+        </div>
+    </div>
+</div>
+<nav  class="navbar navbar-collapse navbar-fixed-bottom">
+	<div class="container">
+		<a href="AboutUs.html" class="btn btn-info navbar-btn btn-circle" role="button"><span class="glyphicon glyphicon-info-sign"></span> About Us</a>
+        <p class="pull-right"><b>Donate Blood</b> &copy; Copyright-left-everything</p>      
+    </div>
+	</nav>
+</body>
+</html>  
