@@ -1,0 +1,675 @@
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css" href="/stylesheets/adminHomePage.css">	
+<link href ='/stylesheets/bootstrap.min.css' rel ='stylesheet'>
+
+
+
+	 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+
+</head>
+
+<body id="bodycolor" data-ng-app="adminHomeApp">
+<div data-ng-controller="adminHomeController">
+
+		<div class="header"  style="text-align:center;" data-ng-init="initApp()">
+		<div class="navSignout">
+			<button class="btn btn-primary">Sign Out</button>
+		</div>
+
+	<div class="bankInfo">
+		<h2 style="position:relative; left:50px;">{{BankName}}</h2>  
+			<p>Address :{{Address}}, {{City}} , {{State}}, {{Pin}}</p>
+			<h4 style="position:relative; left:10px;">Admin: {{AdminName}} {{AdminSurname}}</h4>
+	</div>
+	<br>
+	<br>
+	<br>
+			<div style="border-bottom: thin solid #67a1e8;">
+			</div>
+			</div>
+<div Class="container">
+
+		<div id="listBloodUpdate">
+			<h3 style="position: relative; left:60px;">Update the quantity of blood </h3>
+			
+			<ul class="nav nav-pills">
+				<li>
+					<label for="O+"><h3>O+</h3></label>
+					<button data-target="#loginModal1" data-toggle="modal" class="btn btn-primary" >Update O+</button>
+			    </li>				
+			    
+			    <li>			    	
+					<label for="O+"><h3>O-</h3></label>
+					<button data-target="#loginModal2" data-toggle="modal" class="btn btn-primary">Update O-</button>
+			    </li>
+
+			    <li>
+			    	<label for="O+"><h3>A+</h3></label>
+					<button data-target="#loginModal3" data-toggle="modal" class="btn btn-primary">Update A+</button>
+			    </li>
+
+			    <li>
+			    	<label for="O+"><h3>A-</h3></label>
+					<button data-target="#loginModal4" data-toggle="modal"  class="btn btn-primary">Update A-</button>
+			    </li>
+			</ul>
+			
+
+			
+			
+			<ul class="nav nav-pills">
+
+			    <li>
+			    	<label for="O+"><h3>B+</h3></label>
+					<button data-target="#loginModal5" data-toggle="modal" class="btn btn-primary">Update B+</button>
+			    </li>
+
+			    <li>
+			    	<label for="O+"><h3>B-</h3></label>
+					<button data-target="#loginModal6" data-toggle="modal" class="btn btn-primary">Update B-</button>
+			    </li>
+
+			    <li>
+			    	<label for="O+"><h3>AB+</h3></label>
+					<button data-target="#loginModal7" data-toggle="modal" class="btn btn-primary">Update AB+</button>
+			    </li>
+
+			    <li>
+			    	<label for="O+"><h3>AB-</h3></label>
+					<button data-target="#loginModal8" data-toggle="modal"  class="btn btn-primary">Update AB-</button>
+			    </li>
+
+		    </ul>
+           
+        </div>
+
+
+</div>
+
+
+
+
+<!-- Modal for O+ -->
+<div class="modal fade" id="loginModal1" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i></button>
+        <h4 class="modal-title">Update O+ Blood Group</h4>
+      </div>
+   <div class="modal-body">
+
+    
+    
+      <div class="form-group">
+      <label for="Quantity" class="col-sm-6 control-label">Quantity Added</label>
+        <div class="col-sm-6">
+          <input type="text" data-ng-model="Oplus1" class="form-control" id="Quantity" name="Quantity" placeholder="Enter amount in mili liter">
+        </div>
+      </div>
+      <button data-ng-click="addOplus()" id="sign_button" class="btn btn-primary" name="submit" type="submit">Update</button>
+       <br>
+       <br>
+      <div class="form-group">
+        <label for="Quantity" class="col-sm-6 control-label">Quantity Taken</label>
+        <div class="col-sm-6">
+          <input type="text" data-ng-model="Oplus2" class="form-control" id="Quantity" name="Quantity" placeholder="Enter amount in mili liter">
+        </div>
+        </div>
+           <button data-ng-click="minusOplus()" id="sign_button" class="btn btn-primary" name="submit" type="submit">Update</button>
+
+  </div>
+  </div>
+  </div>
+  </div>
+
+
+<!-- Modal for O- -->
+<div class="modal fade" id="loginModal2" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i></button>
+        <h4 class="modal-title">Update O- Blood Group</h4>
+      </div>
+   <div class="modal-body">
+
+    
+    
+      <div class="form-group">
+       <label for="Quantity" class="col-sm-6 control-label">Quantity Added</label>
+        <div class="col-sm-6">
+          <input type="text" data-ng-model="Ominus1" class="form-control" id="Quantity" name="Quantity" placeholder="Enter amount in mili liter">
+        </div>
+      </div>
+      <button id="sign_button" data-ng-click="addOminus()" class="btn btn-primary" name="submit" type="submit">Update</button>
+       <br>
+       <br>
+      <div class="form-group">
+        <label for="Quantity" class="col-sm-6 control-label">Quantity Taken</label>
+        <div class="col-sm-6">
+          <input type="text" data-ng-model="Ominus2" class="form-control" id="Quantity" name="Quantity" placeholder="Enter amount in mili liter">
+        </div>
+        </div>
+           <button id="sign_button" data-ng-click="minusOminus()" class="btn btn-primary" name="submit" type="submit">Update</button>
+  </div>
+  </div>
+  </div>
+  </div>
+
+
+<!-- Modal for A+ -->
+<div class="modal fade" id="loginModal3" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i></button>
+        <h4 class="modal-title">Update A+ Blood Group</h4>
+      </div>
+   <div class="modal-body">
+
+    
+    
+      <div class="form-group">
+       <label for="Quantity" class="col-sm-6 control-label">Quantity Added</label>
+        <div class="col-sm-6">
+          <input type="text" data-ng-model="Aplus1" class="form-control" id="Quantity" name="Quantity" placeholder="Enter amount in mili liter">
+        </div>
+      </div>
+      <button id="sign_button" data-ng-click="addAplus()" class="btn btn-primary" name="submit" type="submit">Update</button>
+       <br>
+       <br>
+      <div class="form-group">
+        <label for="Quantity" class="col-sm-6 control-label">Quantity Taken</label>
+        <div class="col-sm-6">
+          <input type="text" data-ng-model="Aplus2" class="form-control" id="Quantity" name="Quantity" placeholder="Enter amount in mili liter">
+        </div>
+        </div>
+           <button id="sign_button" data-ng-click="minusAplus()" class="btn btn-primary" name="submit" type="submit">Update</button>
+  </div>
+  </div>
+  </div>
+  </div>
+
+
+<!-- Modal for A- -->
+<div class="modal fade" id="loginModal4" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i></button>
+        <h4 class="modal-title">Update A- Blood Group</h4>
+      </div>
+   <div class="modal-body">
+
+    
+    
+      <div class="form-group">
+       <label for="Quantity" class="col-sm-6 control-label">Quantity Added</label>
+        <div class="col-sm-6">
+          <input type="text" data-ng-model="Aminus1" class="form-control" id="Quantity" name="Quantity" placeholder="Enter amount in mili liter">
+        </div>
+      </div>
+      <button id="sign_button" data-ng-click="addAminus()" class="btn btn-primary" name="submit" type="submit">Update</button>
+       <br>
+       <br>
+      <div class="form-group">
+        <label for="Quantity" class="col-sm-6 control-label">Quantity Taken</label>
+        <div class="col-sm-6">
+          <input type="text" data-ng-model="Aminus2" class="form-control" id="Quantity" name="Quantity" placeholder="Enter amount in mili liter">
+        </div>
+        </div>
+           <button id="sign_button" data-ng-click="minusAminus()" class="btn btn-primary" name="submit" type="submit">Update</button>
+  </div>
+  </div>
+  </div>
+  </div>
+
+
+<!-- Modal for B+ -->
+<div class="modal fade" id="loginModal5" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i></button>
+        <h4 class="modal-title">Update B+ Blood Group</h4>
+      </div>
+   <div class="modal-body">
+
+    
+    
+      <div class="form-group">
+       <label for="Quantity" class="col-sm-6 control-label">Quantity Added</label>
+        <div class="col-sm-6">
+          <input type="text" data-ng-model="Bplus1" class="form-control" id="Quantity" name="Quantity" placeholder="Enter amount in mili liter">
+        </div>
+      </div>
+      <button id="sign_button" data-ng-click="addBplus()" class="btn btn-primary" name="submit" type="submit">Update</button>
+       <br>
+       <br>
+      <div class="form-group">
+        <label for="Quantity" class="col-sm-6 control-label">Quantity Taken</label>
+        <div class="col-sm-6">
+          <input type="text" data-ng-model="Bplus2" class="form-control" id="Quantity" name="Quantity" placeholder="Enter amount in mili liter">
+        </div>
+        </div>
+           <button id="sign_button" data-ng-click="minusBplus()" class="btn btn-primary" name="submit" type="submit">Update</button>
+
+  </div>
+  </div>
+  </div>
+  </div>
+
+
+<!-- Modal for B- -->
+<div class="modal fade" id="loginModal6" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i></button>
+        <h4 class="modal-title">Update B- Blood Group</h4>
+      </div>
+   <div class="modal-body">
+
+    
+    
+      <div class="form-group">
+       <label for="Quantity" class="col-sm-6 control-label">Quantity Added</label>
+        <div class="col-sm-6">
+          <input type="text" data-ng-model="Bminus1" class="form-control" id="Quantity" name="Quantity" placeholder="Enter amount in mili liter">
+        </div>
+      </div>
+      <button id="sign_button" data-ng-click="addBminus()" class="btn btn-primary" name="submit" type="submit">Update</button>
+       <br>
+       <br>
+      <div class="form-group">
+        <label for="Quantity" class="col-sm-6 control-label">Quantity Taken</label>
+        <div class="col-sm-6">
+          <input type="text" data-ng-model="Bminus2" class="form-control" id="Quantity" name="Quantity" placeholder="Enter amount in mili liter">
+        </div>
+        </div>
+           <button id="sign_button" data-ng-click="minusBminus()" class="btn btn-primary" name="submit" type="submit">Update</button>
+
+  </div>
+  </div>
+  </div>
+  </div>
+
+
+<!-- Modal for AB+ -->
+<div class="modal fade" id="loginModal7" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i></button>
+        <h4 class="modal-title">Update AB+ Blood Group</h4>
+      </div>
+   <div class="modal-body">
+
+    
+    
+      <div class="form-group">
+        <label for="Quantity" class="col-sm-6 control-label">Quantity Added</label>
+        <div class="col-sm-6">
+          <input type="text" data-ng-model="ABplus1" class="form-control" id="Quantity" name="Quantity" placeholder="Enter amount in mili liter">
+        </div>
+      </div>
+       <button id="sign_button" data-ng-click="addABplus()" class="btn btn-primary" name="submit" type="submit">Update</button>
+       <br>
+       <br>
+      <div class="form-group">
+        <label for="Quantity" class="col-sm-6 control-label">Quantity Taken</label>
+        <div class="col-sm-6">
+          <input type="text" data-ng-model="ABplus2" class="form-control" id="Quantity" name="Quantity" placeholder="Enter amount in mili liter">
+        </div>
+        </div>
+           <button id="sign_button" data-ng-click="minusABplus()" class="btn btn-primary" name="submit" type="submit">Update</button>
+
+
+  </div>
+  </div>
+  </div>
+  </div>
+
+
+<!-- Modal for AB- -->
+<div class="modal fade" id="loginModal8" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i></button>
+        <h4 class="modal-title">Update AB- Blood Group</h4>
+      </div>
+   <div class="modal-body">
+
+    
+    
+      <div class="form-group">
+        <label for="Quantity" class="col-sm-6 control-label">Quantity Added</label>
+        <div class="col-sm-6">
+          <input type="text"  data-ng-model="ABminus1" class="form-control" id="Quantity" name="Quantity" placeholder="Enter amount in mili liter">
+        </div>
+      </div>
+      <button id="sign_button" data-ng-click="addABminus()" class="btn btn-primary" name="submit" type="submit">Update</button>
+       <br>
+       <br>
+      <div class="form-group">
+        <label for="Quantity" class="col-sm-6 control-label">Quantity Taken</label>
+        <div class="col-sm-6">
+          <input type="text" data-ng-model="ABminus2" class="form-control" id="Quantity" name="Quantity" placeholder="Enter amount in mili liter">
+        </div>
+        </div>
+           <button id="sign_button" data-ng-click="minusABminus()" class="btn btn-primary" name="submit" type="submit">Update</button>
+
+
+  </div>
+  </div>
+  </div>
+  </div>
+</div>
+
+
+<script>
+ var adminHomeApp = angular.module('adminHomeApp', []);
+   
+ 			 adminHomeApp.controller( 'adminHomeController', function ($scope,$http,$location){
+ 			 console.log("Inside controller");
+ 			 
+ 			 $scope.initApp = function () {
+			$http({
+   				method: 'GET',
+	            url: '/admin/getBankInfo'
+	           		}).success(function(response){
+					$scope.BankName=response[0].bank_name;
+	           		 $scope.Address=response[0].address;
+	           		 $scope.City=response[0].city;
+	           		 $scope.State=response[0].state;
+	           		 $scope.Pin=response[0].pin;
+	           		 $scope.AdminName=response[0].admin_name;
+	           		 $scope.AdminSurname=response[0].admin_surname;
+					}).error(function(error){
+	        		console.log("we are in error!!");
+	            	alert("error");
+	        });        
+			};           		 
+ 			 
+ 			 
+   				$scope.addOplus = function(){ $http({
+   				method: 'POST',
+	            url: '/admin/addOplus',
+	            data: { "Blood": $scope.Oplus1}
+	           		
+	           		}).success(function(response){           
+	            if(response.edit == "success")
+	           		alert("Blood Group updated Sucessfully!!");
+	            else
+	            	alert("Error Occured!!");
+	        }).error(function(error){
+	        console.log("we are in error!!");
+	            alert("error");
+	        });   		
+ 			};
+ 		
+ 				$scope.minusOplus = function(){ $http({
+   				method: 'POST',
+	            url: '/admin/minusOplus',
+	            data: { "Blood": $scope.Oplus2}
+	           		
+	           		}).success(function(response){           
+	            if(response.edit == "success")
+	           		alert("Blood Group updated Sucessfully!!");
+	            else
+	            	alert("Error Occured!!");
+	        }).error(function(error){
+	        console.log("we are in error!!");
+	            alert("error");
+	        });   		
+ 			};
+ 			
+ 					$scope.addOminus = function(){ $http({
+   				method: 'POST',
+	            url: '/admin/addOminus',
+	            data: { "Blood": $scope.Ominus1}
+	           		
+	           		}).success(function(response){           
+	            if(response.edit == "success")
+	           		alert("Blood Group updated Sucessfully!!");
+	            else
+	            	alert("Error Occured!!");
+	        }).error(function(error){
+	        console.log("we are in error!!");
+	            alert("error");
+	        });   		
+ 			};
+ 			
+ 					$scope.minusOminus = function(){ $http({
+   				method: 'POST',
+	            url: '/admin/minusOminus',
+	            data: { "Blood": $scope.Ominus2}
+	           		
+	           		}).success(function(response){           
+	            if(response.edit == "success")
+	           		alert("Blood Group updated Sucessfully!!");
+	            else
+	            	alert("Error Occured!!");
+	        }).error(function(error){
+	        console.log("we are in error!!");
+	            alert("error");
+	        });   		
+ 			};
+ 			
+ 					$scope.addAplus = function(){ $http({
+   				method: 'POST',
+	            url: '/admin/addAplus',
+	            data: { "Blood": $scope.Aplus1}
+	           		
+	           		}).success(function(response){           
+	            if(response.edit == "success")
+	           		alert("Blood Group updated Sucessfully!!");
+	            else
+	            	alert("Error Occured!!");
+	        }).error(function(error){
+	        console.log("we are in error!!");
+	            alert("error");
+	        });   		
+ 			};
+ 			
+ 					$scope.minusAplus = function(){ $http({
+   				method: 'POST',
+	            url: '/admin/minusAplus',
+	            data: { "Blood": $scope.Aplus2}
+	           		
+	           		}).success(function(response){           
+	            if(response.edit == "success")
+	           		alert("Blood Group updated Sucessfully!!");
+	            else
+	            	alert("Error Occured!!");
+	        }).error(function(error){
+	        console.log("we are in error!!");
+	            alert("error");
+	        });   		
+ 			};
+ 			
+ 					$scope.addAminus = function(){ $http({
+   				method: 'POST',
+	            url: '/admin/addAminus',
+	            data: { "Blood": $scope.Aminus1}
+	           		
+	           		}).success(function(response){           
+	            if(response.edit == "success")
+	           		alert("Blood Group updated Sucessfully!!");
+	            else
+	            	alert("Error Occured!!");
+	        }).error(function(error){
+	        console.log("we are in error!!");
+	            alert("error");
+	        });   		
+ 			};
+ 			
+ 					$scope.minusAminus = function(){ $http({
+   				method: 'POST',
+	            url: '/admin/minusAminus',
+	            data: { "Blood": $scope.Aminus2}
+	           		
+	           		}).success(function(response){           
+	            if(response.edit == "success")
+	           		alert("Blood Group updated Sucessfully!!");
+	            else
+	            	alert("Error Occured!!");
+	        }).error(function(error){
+	        console.log("we are in error!!");
+	            alert("error");
+	        });   		
+ 			};
+ 			
+ 					$scope.addBplus = function(){ $http({
+   				method: 'POST',
+	            url: '/admin/addBplus',
+	            data: { "Blood": $scope.Bplus1}
+	           		
+	           		}).success(function(response){           
+	            if(response.edit == "success")
+	           		alert("Blood Group updated Sucessfully!!");
+	            else
+	            	alert("Error Occured!!");
+	        }).error(function(error){
+	        console.log("we are in error!!");
+	            alert("error");
+	        });   		
+ 			};
+ 			
+ 					$scope.minusBplus = function(){ $http({
+   				method: 'POST',
+	            url: '/admin/minusBplus',
+	            data: { "Blood": $scope.Bplus2}
+	           		
+	           		}).success(function(response){           
+	            if(response.edit == "success")
+	           		alert("Blood Group updated Sucessfully!!");
+	            else
+	            	alert("Error Occured!!");
+	        }).error(function(error){
+	        console.log("we are in error!!");
+	            alert("error");
+	        });   		
+ 			};
+ 			
+ 			
+ 					$scope.addBminus = function(){ $http({
+   				method: 'POST',
+	            url: '/admin/addBminus',
+	            data: { "Blood": $scope.Bminus1}
+	           		
+	           		}).success(function(response){           
+	            if(response.edit == "success")
+	           		alert("Blood Group updated Sucessfully!!");
+	            else
+	            	alert("Error Occured!!");
+	        }).error(function(error){
+	        console.log("we are in error!!");
+	            alert("error");
+	        });   		
+ 			};
+ 			
+ 					$scope.minusBminus = function(){ $http({
+   				method: 'POST',
+	            url: '/admin/minusBminus',
+	            data: { "Blood": $scope.Bminus2}
+	           		
+	           		}).success(function(response){           
+	            if(response.edit == "success")
+	           		alert("Blood Group updated Sucessfully!!");
+	            else
+	            	alert("Error Occured!!");
+	        }).error(function(error){
+	        console.log("we are in error!!");
+	            alert("error");
+	        });   		
+ 			};
+ 			
+ 					$scope.addABplus = function(){ $http({
+   				method: 'POST',
+	            url: '/admin/addABplus',
+	            data: { "Blood": $scope.ABplus1}
+	           		
+	           		}).success(function(response){           
+	            if(response.edit == "success")
+	           		alert("Blood Group updated Sucessfully!!");
+	            else
+	            	alert("Error Occured!!");
+	        }).error(function(error){
+	        console.log("we are in error!!");
+	            alert("error");
+	        });   		
+ 			};
+ 			
+ 					$scope.minusABplus = function(){ $http({
+   				method: 'POST',
+	            url: '/admin/minusABplus',
+	            data: { "Blood": $scope.ABplus2}
+	           		
+	           		}).success(function(response){           
+	            if(response.edit == "success")
+	           		alert("Blood Group updated Sucessfully!!");
+	            else
+	            	alert("Error Occured!!");
+	        }).error(function(error){
+	        console.log("we are in error!!");
+	            alert("error");
+	        });   		
+ 			};
+ 			
+ 					$scope.addABminus = function(){ $http({
+   				method: 'POST',
+	            url: '/admin/addABminus',
+	            data: { "Blood": $scope.ABminus1}
+	           		
+	           		}).success(function(response){           
+	            if(response.edit == "success")
+	           		alert("Blood Group updated Sucessfully!!");
+	            else
+	            	alert("Error Occured!!");
+	        }).error(function(error){
+	        console.log("we are in error!!");
+	            alert("error");
+	        });   		
+ 			};
+ 			
+ 					$scope.minusABminus = function(){ $http({
+   				method: 'POST',
+	            url: '/admin/minusABminus',
+	            data: { "Blood": $scope.ABminus2}
+	           		
+	           		}).success(function(response){           
+	            if(response.edit == "success")
+	           		alert("Blood Group updated Sucessfully!!");
+	            else
+	            	alert("Error Occured!!");
+	        }).error(function(error){
+	        console.log("we are in error!!");
+	            alert("error");
+	        });   		
+ 			};	
+ 			
+ 		});
+ 			
+
+
+</script>
+  
+  
+
+
+
+
+
+
+<script src="/javascripts/bootstrap.min.js"></script>
+</body>
+</html>

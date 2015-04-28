@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Login</title>
+	<link href="/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet">
+		
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link href="/stylesheets/Shreyasstyle.css" rel="stylesheet">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<!-- <link href="../../../bootstrap-social-gh-pages/bootstrap-social.css" rel="stylesheet"> -->
+	<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+	
+  </head>
+
+<body data-ng-app="signupApp">
+<div data-ng-controller="signupController">
+<video id="videobcg" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
+	<source src="/video/movie.mp4" type="video/mp4">
+		Sorry, your browser does not support HTML5 video.
+</video> 
+<div class="container">
+    <div class="row">
+        <div style="position:relative; top:100px; left:380px;" class="col-xs-12 col-sm-12 col-md-4 well well-sm">
+            <legend><a href="http://www.jquery2dotnet.com"><i class="glyphicon glyphicon-globe"></i></a> Sign up!</legend>
+            
+            <div class="row">
+              <input data-ng-model="bankName" style="position:relative; left:15px; width:370px;" class="form-control" name="bankName" placeholder="Blood Bank Name" type="text" />
+                <div class="col-xs-6 col-md-6">
+                    <input data-ng-model="AdminName" class="form-control" name="firstname" placeholder="Admin First Name" type="text"
+                        required autofocus />
+                </div>
+                <div class="col-xs-6 col-md-6">
+                    <input data-ng-model="AdminSurname" class="form-control" name="lastname" placeholder="Admin Last Name" type="text" required />
+                </div>
+            </div>
+            <input data-ng-model="email" class="form-control" name="youremail" placeholder="Admin Email" type="email" />
+            <input data-ng-model="password" class="form-control" name="password" placeholder="Password" type="password" />
+            <input data-ng-model="reenterPassword" class="form-control" name="password" placeholder="Re-enter Password" type="password" />
+            <input data-ng-model="Address" class="form-control" name="youremail" placeholder="Address" type="text" />
+            <input data-ng-model="zipcode" class="form-control" name="youremail" placeholder="Zip code" type="text" />
+            <input data-ng-model="city" class="form-control" name="youremail" placeholder="City" type="text" />
+            <input data-ng-model="state" class="form-control" name="youremail" placeholder="State" type="text" />
+            <input data-ng-model="phone" class="form-control" name="youremail" placeholder="Phone number" type="text" />
+            
+            <br />
+            <br />
+            <button data-ng-click="signup()" class="btn btn-lg btn-primary btn-block" type="submit">
+                Sign up</button>
+           
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+var signupApp = angular.module('signupApp', []);
+              
+ 			 signupApp.controller( 'signupController', function ($scope,$http,$location){
+ 			 console.log("inside signup");
+ 				$scope.signup = function(){ $http({
+   				method: 'POST',
+	            url: '/createUser/signUp',
+	            data: { "bankName": $scope.bankName, "AdminName":$scope.AdminName, "AdminSurname":$scope.AdminSurname, "email":$scope.email, "password":$scope.password, "Address":$scope.Address, "zipcode":$scope.zipcode, "city":$scope.city, "state":$scope.state, "phone":$scope.phone}
+	           		
+	           		}).success(function(response){
+	           
+	            alert("Successfully logged in !!");
+	            
+	            if(response.signup == "success"){
+	           		window.location = '/Signedup';
+	           		}
+	            else
+	            {
+	            	window.location = '/failLogin';
+	            	}
+	        }).error(function(error){
+	        console.log("we are in error!!");
+	            alert("Signup Failed!!");
+	        });   		
+ 			}; 			
+ 			 });	
+</script>
+</body>
+</html>

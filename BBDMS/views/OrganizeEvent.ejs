@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Organize an Event</title>
+	<link href="stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet">
+		
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link href="stylesheets/Shreyasstyle.css" rel="stylesheet">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="stylesheets/font-awesome.min.css">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<!-- <link href="../../../bootstrap-social-gh-pages/bootstrap-social.css" rel="stylesheet"> -->
+	<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+  </head>
+
+<body data-ng-app="organizeApp"> 
+<div data-ng-controller="organizeController">
+<video id="videobcg" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
+	<source src="/video/movie.mp4" type="video/mp4">
+		Sorry, your browser does not support HTML5 video.
+</video>
+<div class="container">
+
+          <h3>Set Event Details</h3>
+
+<form id="eventForm" class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<!-- <legend>Set Event Details</legend> -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="organized_by">Organized By</label>  
+  <div class="col-md-5">
+  <input id="organizedBy" data-ng-model="date" name="organized_by" placeholder="" class="form-control input-md" type="date">
+    
+  </div>
+</div>
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="eventDate">Event Date</label>  
+  <div class="col-md-5">
+  <input id="eventDate" data-ng-model="date" name="eventDate" placeholder="MM/DD/YYYY" class="form-control input-md" type="date">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="eventAddress">Venue</label>  
+  <div class="col-md-6">
+  <input id="eventAddress" data-ng-model="eventAddress" name="eventAddress" placeholder="Enter Address" class="form-control input-md" type="text">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="eventCity">City</label>  
+  <div class="col-md-6">
+  <input id="eventCity" data-ng-model="city" name="eventCity" placeholder="Enter City" class="form-control input-md" type="text" list="cityInput">
+   <datalist id="cityInput">
+	<option value="Los Angeles">
+	<option value="San Diego">
+	<option value="San Jose">
+	<option value="San Francisco">
+	<option value="Fresno">
+	<option value="Sacramento">
+	<option value="Long Beach">
+	<option value="Oakland">
+	<option value="Bakersfield">
+	<option value="Anaheim">
+	<option value="Santa Ana">
+	<option value="Riverside">
+	<option value="Stockton">
+	<option value="Chula Vista">
+	<option value="Fremont">
+	<option value="Irvine">
+	<option value="San Bernardino">
+	<option value="Modesto">
+	<option value="Oxnard">
+	<option value="Fontana">
+	<option value="Moreno Valley">
+	<option value="Glendale">
+	<option value="Huntington Beach">
+	<option value="Santa Clarita">
+	<option value="Garden Grove">
+	<option value="Oceanside">
+	<option value="Santa Rosa">
+	<option value="Rancho Cucamonga">
+	<option value="Ontario">
+	<option value="Lancaster">
+	<option value="Corona">
+	<option value="Palmdale">
+	<option value="Elk Grove">
+	<option value="Salinas">
+	<option value="Pomona">
+	<option value="Torrance">
+	<option value="Hayward">
+	<option value="Escondido">
+	<option value="Sunnyvale">
+	<option value="Pasadena">
+	<option value="Orange">
+	<option value="Fullerton">
+	<option value="East Los Angeles">
+	<option value="Thousand Oaks">
+	</datalist> 
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="eventState">State</label>  
+  <div class="col-md-6">
+  <input id="eventState" data-ng-model="state" name="eventState" placeholder="Select State" class="form-control input-md" type="text" list="stateInput">
+	<datalist id="stateInput">
+	<option value="California">
+	</datalist>   
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="eventContact">Contact</label>  
+  <div class="col-md-5">
+  <input id="eventContact" data-ng-model="contact" name="eventContact" placeholder="0123456789" class="form-control input-md" type="tel" maxlength="10">
+   
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="eventDesc">Description</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" data-ng-model="description" id="eventDesc" name="eventDesc" placeholder="If you want to give more details, enter it here..."></textarea>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="eventSubmit"></label>
+  <div class="col-md-12" align="center">
+    <button id="eventSubmit" data-ng-click="submitOrganize()" name="eventSubmit" class="btn btn-lg btn-primary">Submit</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+</div>
+</div>
+
+
+<script>
+      
+var organizeApp = angular.module('organizeApp', []);
+   
+ 			 indexApp.controller( 'organizeController', function ($scope,$http,$location){
+ 			 console.log("Inside controller");
+ 			 
+ 			 $scope.searchBlood = function () {
+			$http({
+   				method: 'POST',
+	            url: '/organize/organizeEvent',
+	            data:{ "date": $scope.date, "eventAddress": $scope.eventAddress, "city": $scope.city, "state":$scope.state, "contact": $scope.contact , "description":$scope.description}
+	           		}).success(function(response){
+	           		
+	           		if(response.length > 0){
+					alert("Event created successfully !!");         		 
+	           		 }
+	           		 else{
+	           		 alert("Failed to create an event !!");
+	           		 }
+					}).error(function(error){
+	        		console.log("we are in error!!");
+	            	alert("error");
+	        });        
+			};        
+			});
+</script>
+
+</body>
+</html>

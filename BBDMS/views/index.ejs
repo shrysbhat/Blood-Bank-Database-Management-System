@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Blood Bank Database Management</title>
+	<link href="/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet">
+		
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link href="/stylesheets/Shreyasstyle.css" rel="stylesheet">
+	
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/stylesheets/font-awesome.min.css" type="text/css">
+	 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+	
+	
+	<!-- <link href="../../../bootstrap-social-gh-pages/bootstrap-social.css" rel="stylesheet"> -->
+	
+  </head>
+
+<body data-ng-app="indexApp">
+<div data-ng-controller="indexController">
+<video id="videobcg" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
+	<source src="/video/movie.mp4" type="video/mp4">
+		Sorry, your browser does not support HTML5 video.
+</video>
+
+<nav class="navbar navbar-collapse">
+  <div class="container">
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+		<li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-list"></span> Events
+			<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+            <li><a data-ng-click="navEvents()" href="#">View Events</a></li>
+            <li><a data-ng-click="navOrgEvents()"href="#">Organize</a></li>
+			</ul>
+        </li>
+	</ul>
+	<ul class="nav navbar-nav navbar-right">
+        <li><a data-ng-click="navSignup()" href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a data-ng-click="navLogin()" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- <div class="container" id="navigation">
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="Login.html" class="btn btn-success navbar-btn btn-circle" role="button">Sign In/Sign Up</a></li>
+    </ul>
+</div> -->
+
+    <div class="container col-lg-12 page-header text-center">
+          <h1>Find <span class="glyphicon glyphicon-tint" style="color:red"></span> Blood</h1>
+	</div>
+	
+<!--	<div class="container col-lg-12 text-center">
+		  <p class="lead">What Blood Group are you looking for?</p>
+	</div> -->
+		
+        
+<!--		<div class="container">
+				<button class="col-lg-4 dropdown-toggle btn btn-danger btn-lg" type="button" data-toggle="dropdown">
+				Blood Group &nbsp;<span class="caret"></span>
+				</button>
+<!--				<label for="cityName">City:</label> -->
+<!--				<input class="col-lg-4" id="city_name" type="text" name="cityName" placeholder="Enter City Name">
+				<input class="col-lg-4 btn btn-lg btn-default" type="submit" value="Submit">
+				<br>
+				<ul class="col-lg-4 dropdown-menu">
+					<li><a tabindex="-1" href="#" value="A +ve">A +ve</a></li>
+					<li class="divider"></li>
+					<li><a tabindex="-1" href="#" value="A -ve">A -ve</a></li>
+					<li class="divider"></li>
+					<li><a tabindex="-1" href="#" value="B +ve">B +ve</a></li>
+					<li class="divider"></li>
+					<li><a tabindex="-1" href="#" value="B -ve">B -ve</a></li>
+					<li class="divider"></li>
+					<li><a tabindex="-1" href="#" value="AB +ve">AB +ve</a></li>
+					<li class="divider"></li>
+					<li><a tabindex="-1" href="#" value="AB -ve">AB -ve</a></li>
+					<li class="divider"></li>
+					<li><a tabindex="-1" href="#" value="O +ve">O +ve</a></li>
+					<li class="divider"></li>
+					<li><a tabindex="-1" href="#" value="O -ve">O -ve</a></li>
+				</ul>
+		</div> -->
+	
+<div class="container col-lg-12 text-center"> 	
+	<form class="form-horizontal">
+	<fieldset>
+
+	<!-- Form Name -->
+	<legend>What Blood Group are you looking for?</legend>
+
+	<!-- Button Drop Down -->
+	<div style="position:relative; left:388px;" class="form-group">
+	<label class="col-md-4 control-label" for="buttondropdown">Blood Group</label>
+	<div class="col-md-4">
+	<input name="textinput1" data-ng-model="bloodGroup" style="height:25px;" placeholder="Select Blood group" class="form-control input-lg" type="text" list="textinput1">
+<datalist id="textinput1">
+<option value="A +ve">
+<option value="A -ve">
+<option value="B +ve">
+<option value="B -ve">
+<option value="AB +ve">
+<option value="AB -ve">
+<option value="O +ve">
+<option value="O -ve">
+	</datalist>
+	</div>
+	</div>
+
+	<!-- Text input-->
+	<div style="position:relative; left:388px;"class="form-group">
+	<label class="col-md-4 control-label" for="textinput">City</label>  
+	<div class="col-md-4">
+	<input name="textinput" data-ng-model="cityName" style="height:25px;" placeholder="Select City" class="form-control input-lg" type="text" list="textinput">
+<datalist id="textinput">
+<option value="Los Angeles">
+<option value="San Diego">
+<option value="San Jose">
+<option value="San Francisco">
+<option value="Fresno">
+<option value="Sacramento">
+<option value="Long Beach">
+<option value="Oakland">
+<option value="Bakersfield">
+<option value="Anaheim">
+<option value="Santa Ana">
+<option value="Riverside">
+<option value="Stockton">
+<option value="Chula Vista">
+<option value="Fremont">
+<option value="Irvine">
+<option value="San Bernardino">
+<option value="Modesto">
+<option value="Oxnard">
+<option value="Fontana">
+<option value="Moreno Valley">
+<option value="Glendale">
+<option value="Huntington Beach">
+<option value="Santa Clarita">
+<option value="Garden Grove">
+<option value="Oceanside">
+<option value="Santa Rosa">
+<option value="Rancho Cucamonga">
+<option value="Ontario">
+<option value="Lancaster">
+<option value="Corona">
+<option value="Palmdale">
+<option value="Elk Grove">
+<option value="Salinas">
+<option value="Pomona">
+<option value="Torrance">
+<option value="Hayward">
+<option value="Escondido">
+<option value="Sunnyvale">
+<option value="Pasadena">
+<option value="Orange">
+<option value="Fullerton">
+<option value="East Los Angeles">
+<option value="Thousand Oaks">
+</datalist>
+    
+	</div>
+	</div>
+
+	<!-- Button -->
+	<div style="position:relative; left:330px;" class="form-group">
+	<label class="col-lg-4 control-label" for="submitButton"></label>
+	<div class="col-lg-4">
+    <button id="submitButton" name="submitButton" class="btn btn-success btn-lg" data-ng-click="searchBlood()"><span class="glyphicon glyphicon-search"></span> Search</button>
+	</div>
+	</div><div data-ng-repeat="blood in bloods">
+	<h4>{{blood.bank_name}} {{blood.address}} {{blood.city}} {{blood.state}} {{blood.contact}}</h4>
+	</div>
+	</fieldset>
+	</form>
+</div>
+		
+		
+	<nav  class="navbar navbar-collapse navbar-fixed-bottom">
+	<div class="container">
+		<a href="AboutUs.html" class="btn btn-info navbar-btn btn-circle" role="button">About Us</a>
+        <p class="pull-right"><b>Donate Blood</b> &copy; Copyright-left-everything</p>      
+    </div>
+	</nav>
+	
+
+</div>
+	
+	
+	<script>
+	
+	var indexApp = angular.module('indexApp', []);
+   
+ 			 indexApp.controller( 'indexController', function ($scope,$http,$location){
+ 			 console.log("Inside controller");
+ 			 
+ 			 $scope.searchBlood = function () {
+			$http({
+   				method: 'POST',
+	            url: '/home/getBloodInfo',
+	            data:{ "Blood": $scope.bloodGroup, "cityName": $scope.cityName}
+	           		}).success(function(response){
+	           		
+	           		if(response.length > 0){
+					$scope.bloods=response;         		 
+	           		 }
+	           		 else{
+	           		 alert(" Sorry !! The requested blood is not available !!");
+	           		 }
+					}).error(function(error){
+	        		console.log("we are in error!!");
+	            	alert("error");
+	        });        
+			};           		 
+	            
+	            $scope.navSignup = function(){ $http({
+   				method: 'GET',
+	            url: '/home/getSignup'	            
+	           		}).success(function(response){	          	            
+	            if(response.length > 0)
+	           		window.location = '/successSignup';
+	            else
+	            	window.location = '/failure';
+	        }).error(function(error){
+	        console.log("we are in error!!");
+	            alert("error");
+	        });   		
+ 			};
+ 			
+ 			 $scope.navLogin = function(){ $http({
+   				method: 'GET',
+	            url: '/home/getSignin'	            
+	           		}).success(function(response){	          	            
+	            if(response.length > 0)
+	           		window.location = '/successLoginPage';
+	            else
+	            	window.location = '/failure';
+	        }).error(function(error){
+	        console.log("we are in error!!");
+	            alert("error");
+	        });   		
+ 			};
+	            
+ 		
+ 		
+ 		 $scope.navOrgEvents = function(){ $http({
+   				method: 'GET',
+	            url: '/organize/getOrganizePage'	            
+	           		}).success(function(response){	          	            
+	            if(response.length > 0)
+	           		window.location = '/OrganizeEventspage';
+	            else
+	            	window.location = '/failure';
+	        }).error(function(error){
+	        console.log("we are in error!!");
+	            alert("error");
+	        });   		
+ 			};
+ 			
+ 			
+ 			
+ 			 $scope.navEvents = function(){ $http({
+   				method: 'GET',
+	            url: '/organize/getViewEvents'	            
+	           		}).success(function(response){	          	            
+	            if(response.length > 0)
+	           		window.location = '/getEventspage';
+	            else
+	            	window.location = '/failure';
+	        }).error(function(error){
+	        console.log("we are in error!!");
+	            alert("error");
+	        });   		
+ 			};
+ 			
+ 			
+ 			
+ 		
+ 		
+ 		
+});
+	</script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  </body>
+  
+	
+</html>
